@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
 
             binding.result.text = result?.toString() ?: "Error"
             input = result?.toString() ?: ""
-            resetOperation()
+            resetOperation(result?.toString()?: "")
         }
     }
 
@@ -100,6 +100,14 @@ class MainActivity : AppCompatActivity() {
             input += "."
             binding.result.text = input
         }
+    }
+
+    private fun resetOperation(result: String) {
+        input = ""
+        firstNumber = result
+        secondNumber = ""
+        operator = ""
+        isNewOp = true
     }
 
     private fun resetOperation() {
